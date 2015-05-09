@@ -1,0 +1,46 @@
+<?php
+
+/**
+ * @file
+ * Module file for menu_example.
+ */
+
+/**
+ * Implements hook_menu().
+ */
+
+function my_menu_menu() {
+    $items['my_menu'] = array(
+        'title' => 'my_menu',
+        'discription' => 'My_menu',
+        'page callback' => '_my_menu_callback',
+        'access callback' => TRUE,
+    );
+    return $items;
+
+}
+
+
+function _my_menu_callback($content = NULL) {
+    $base_content = t(
+        'This is the base page of the Menu Example. There are a number of examples
+  here, from the most basic (like this one) to extravagant mappings of loaded
+  placeholder arguments. Enjoy!');
+    return '<div>' . $base_content . '</div><br /><div>' . $content . '</div>';
+}
+
+
+/**
+ * Implements hook_menu_alter.
+ * Check access for forum menu item.
+ */
+function my_menu_menu_alter(&$items) {
+    $items['my_menu']['access callback'] = '_accesscheck';
+}
+/**
+ * Callback to disallow access for the anonymous user.
+ */
+function _accesscheck(){
+    global $user;
+    return $user->uid;
+}
