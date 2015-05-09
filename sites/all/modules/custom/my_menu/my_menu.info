@@ -1,0 +1,6 @@
+name = my_menu
+description =bla bla bla
+package = my_menu
+core = 7.x
+
+
