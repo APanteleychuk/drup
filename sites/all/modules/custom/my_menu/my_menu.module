@@ -15,6 +15,16 @@ function my_menu_menu() {
         'discription' => 'My_menu',
         'page callback' => '_my_menu_callback',
         'access callback' => TRUE,
+        'expanded' => TRUE,
+    );
+
+    $items['my_menu/form'] = array(
+        'title' => 'My Form',
+        'page callback' => 'drupal_get_form',
+        'page arguments' => array('my_form'),
+        'access callback' => TRUE,
+        'file' => 'my_form.inc',
+        'weight' => 100,
     );
     return $items;
 
@@ -23,12 +33,10 @@ function my_menu_menu() {
 
 function _my_menu_callback($content = NULL) {
     $base_content = t(
-        'This is the base page of the Menu Example. There are a number of examples
-  here, from the most basic (like this one) to extravagant mappings of loaded
-  placeholder arguments. Enjoy!');
+        'This is the simple test for my work!!!');
     return '<div>' . $base_content . '</div><br /><div>' . $content . '</div>';
-}
 
+}
 
 /**
  * Implements hook_menu_alter.
