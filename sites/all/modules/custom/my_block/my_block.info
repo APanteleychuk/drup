@@ -1,0 +1,8 @@
+name = my_block
+description =
+package =
+core = 7.x
+dependencies[] = block
+version = "7.x-1.x-dev"
+core = "7.x"
+project = "my_block"
