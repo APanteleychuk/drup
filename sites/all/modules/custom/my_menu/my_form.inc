@@ -16,7 +16,7 @@ function my_form($form, &$form_state) {
 
     $form['submit'] = array(
         '#type' => 'submit',
-        '#value' => t('Сохранить :)'),
+        '#value' => t('Submit'),
     );
     return $form;
 }
@@ -25,5 +25,6 @@ function my_form($form, &$form_state) {
  * Submit handler for my_form().
  */
 function my_form_submit($form, &$form_state) {
-    drupal_set_message(t('Submitting values: @values', array('@values' => var_export($form_state['values'], TRUE))));
+    drupal_set_message(t('Done'));
+//    drupal_set_message(t('Submitting values: @values', array('@values' => var_export($form_state['values'], TRUE))));
 }
